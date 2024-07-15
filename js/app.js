@@ -1,7 +1,16 @@
 console.log("Tic-Tac-Toe Lab");
 
 /*-------------------------------- Constants --------------------------------*/
-
+const winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -19,10 +28,10 @@ console.log(messageEl);
 init()
 
 function init() {
-    board = ["", "X", "", "", "O", "", "", "", ""]
+    board = ["", "X", "", "", "O", "", "X", "", ""]
     turn = "X"
     winner = false
-    tie = false
+    tie = true
     render()
     // console.log(board);
     // console.log(turn);
@@ -31,6 +40,7 @@ function init() {
 }
 function render() {
     updateBoard()
+    updateMessage()
 }
 
 function updateBoard() {
@@ -48,6 +58,19 @@ function updateBoard() {
     })  
 }
 
+function updateMessage() {
+    if (!winner && !tie) {
+        messageEl.textContent = `It is ${turn}'s turn`
+    }   else if (!winner && tie) {
+        messageEl.textContent = "Cat's game. Meow!!! 😻"
+    }   else {
+        messageEl.textContent = `${turn} wins the game!`
+    }
+}
+
+function handleClick(evt) {
+    
+}
 
 /*----------------------------- Event Listeners -----------------------------*/
 
