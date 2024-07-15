@@ -28,10 +28,10 @@ console.log(messageEl);
 init()
 
 function init() {
-    board = ["", "X", "", "", "O", "", "X", "", ""]
+    board = ["", "", "", "", "", "", "", "", ""]
     turn = "X"
     winner = false
-    tie = true
+    tie = false
     render()
     // console.log(board);
     // console.log(turn);
@@ -69,10 +69,25 @@ function updateMessage() {
 }
 
 function handleClick(evt) {
-    
+    console.log(evt.target);
+    const squareIndex = parseInt(evt.target.id)
+    console.log(squareIndex, typeof squareIndex);
+    if (board[squareIndex] === "X" || board[squareIndex] === "O" || winner){
+        return
+    }
+    placePiece(squareIndex)
+}
+
+function placePiece(index) {
+    board[index] = turn
+    console.log(board);
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
+squareEls.forEach((squareEl) => {
+    squareEl.addEventListener("click", handleClick)
+})
+
 
 
 
