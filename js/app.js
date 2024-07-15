@@ -22,7 +22,8 @@ const squareEls = document.querySelectorAll(".sqr")
 //console.log(squareEls);
 const messageEl = document.getElementById("message")
 //console.log(messageEl);
-
+const resetBtnEl = document.getElementById("reset")
+//console.log(reset);
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -124,6 +125,8 @@ function switchPlayerTurn() {
 squareEls.forEach((squareEl) => {
     squareEl.addEventListener("click", handleClick)
 })
+
+resetBtnEl.addEventListener("click", init)
 
 
 
