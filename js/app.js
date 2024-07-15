@@ -19,9 +19,9 @@ let board, turn, winner, tie
 
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll(".sqr")
-console.log(squareEls);
+//console.log(squareEls);
 const messageEl = document.getElementById("message")
-console.log(messageEl);
+//console.log(messageEl);
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -69,20 +69,57 @@ function updateMessage() {
 }
 
 function handleClick(evt) {
-    console.log(evt.target);
     const squareIndex = parseInt(evt.target.id)
-    console.log(squareIndex, typeof squareIndex);
     if (board[squareIndex] === "X" || board[squareIndex] === "O" || winner){
         return
     }
     placePiece(squareIndex)
+    checkForWinner()
+    checkForTie()
+    switchPlayerTurn()
+    render()
 }
 
 function placePiece(index) {
     board[index] = turn
-    console.log(board);
+    //console.log(board);
 }
 
+function checkForWinner() {
+    if (
+        (board[0] !== "" && board[0] === board[1] && board[0] === board[2]) ||
+        (board[3] !== "" && board[3] === board[4] && board[3] === board[5]) ||
+        (board[6] !== "" && board[6] === board[7] && board[6] === board[8]) ||
+        (board[0] !== "" && board[0] === board[3] && board[0] === board[6]) ||
+        (board[1] !== "" && board[1] === board[4] && board[1] === board[7]) ||
+        (board[2] !== "" && board[2] === board[5] && board[2] === board[8]) ||
+        (board[0] !== "" && board[0] === board[4] && board[0] === board[8]) ||
+        (board[2] !== "" && board[2] === board[4] && board[2] === board[6]) 
+    ){
+        winner = true 
+    }
+}
+
+function checkForTie() {
+    if (winner) {
+        return
+    }
+    if (!board.includes("")) {
+        tie = true
+    }
+}
+
+function switchPlayerTurn() {
+    if (winner) {
+        return
+    }
+    if (turn === "X") {
+        turn = "O"
+    }else {
+        turn = "X"
+    }
+    //turn === turn 
+}
 /*----------------------------- Event Listeners -----------------------------*/
 squareEls.forEach((squareEl) => {
     squareEl.addEventListener("click", handleClick)
