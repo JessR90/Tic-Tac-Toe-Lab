@@ -119,7 +119,7 @@ function switchPlayerTurn() {
     }else {
         turn = "X"
     }
-    //turn === turn 
+    //turn = turn === "X" ? "O" : "X"
 }
 /*----------------------------- Event Listeners -----------------------------*/
 squareEls.forEach((squareEl) => {
