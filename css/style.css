@@ -19,3 +19,37 @@ body {
     text-align: center;
   }
   
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; (vh =view port which is browser size)
+  }
+   */
+
+/* h1 {
+  margin-bottom: 0px;
+  }
+*/
+
+/* button {
+  margin-top: 20px;
+  font-size: 24px;
+  font-family: system-ui, sans-serif;
+  border: none;
+  width: 100px;
+  height: 35px;
+  border-radius: 8px;
+  }
+*/
+
+/* .sqr {
+  border-radius: 8px;
+*/
+
+/* board {
+  gap: 4px;
+  width
+*/

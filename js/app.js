@@ -58,6 +58,17 @@ function updateBoard() {
         }
     })  
 }
+// function updateBoard() {
+//     board.forEach((cell, idx) => {
+//         if (cell === "X") {
+//             squareEls[idx].textContent = "emoji" 
+//             squareEls[idx].style.backgroundColor = "blue"
+//         }else if (cell === "O") {
+//             squareEls[idx].textContent = "emoji"
+//             squareEls[idx].style.backgroundColor = "red"
+//         }else {
+//             squareEls[idx].textContent = ""
+//             squareEls[idx].style.backgroundColor = "white"
 
 function updateMessage() {
     if (!winner && !tie) {
@@ -65,9 +76,22 @@ function updateMessage() {
     }   else if (!winner && tie) {
         messageEl.textContent = "Cat's game. Meow!!! 😻"
     }   else {
-        messageEl.textContent = `${turn} wins the game!`
+        messageEl.textContent = `It is ${turn}'s turn`
+
     }
 }
+
+// function updateMessage() {
+//     if (!winner && !tie) {
+//         messageEl.textContent = `It is ${turn === "X" ? "emoji" : "emoji"}'s turn`
+//     }   else if (!winner && tie) {
+//         messageEl.textContent = "Cat's game. Meow!!! 😻"
+//     }   else {
+//         messageEl.textContent = `It is ${turn === "X" ? "emoji" : "emoji"}'s turn`
+
+//     }
+// }
+
 
 function handleClick(evt) {
     const squareIndex = parseInt(evt.target.id)
